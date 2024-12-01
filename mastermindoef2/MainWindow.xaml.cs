@@ -70,4 +70,11 @@ namespace MastermindGame
             HistoryListBox.ItemsSource = _history;
         }
 
-       
+        // Mastermind-08: Score
+        private void UpdateScore(int redCount, int whiteCount)
+        {
+            _score -= (4 - redCount) + whiteCount;
+            ScoreLabel.Content = $"Score: {_score}";
+        }
+
+      
