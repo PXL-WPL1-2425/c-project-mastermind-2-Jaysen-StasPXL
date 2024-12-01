@@ -62,4 +62,12 @@ namespace MastermindGame
             }
         }
 
+        // Mastermind-07: Historiek
+        private void UpdateHistory(string[] guesses, string feedback)
+        {
+            _history.Add($"Attempt {_attempts}: {string.Join(", ", guesses)} - {feedback}");
+            HistoryListBox.ItemsSource = null;
+            HistoryListBox.ItemsSource = _history;
+        }
+
        
