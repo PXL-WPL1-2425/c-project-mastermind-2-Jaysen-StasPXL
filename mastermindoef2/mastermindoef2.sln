@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mastermindoef2", "mastermindoef2.csproj", "{C4231242-4F75-463D-A00E-9E02501D4DDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4231242-4F75-463D-A00E-9E02501D4DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4231242-4F75-463D-A00E-9E02501D4DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4231242-4F75-463D-A00E-9E02501D4DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4231242-4F75-463D-A00E-9E02501D4DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A19A4322-8A04-42D8-952F-48BB0B4608E8}
+	EndGlobalSection
+EndGlobal
