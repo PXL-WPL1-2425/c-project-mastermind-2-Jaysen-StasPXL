@@ -77,4 +77,17 @@ namespace MastermindGame
             ScoreLabel.Content = $"Score: {_score}";
         }
 
-      
+        // Mastermind-09: Speleinde
+        private void EndGame()
+        {
+            if (MessageBox.Show("Do you want to play again?", "Play Again", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                InitializeGame();
+            }
+            else
+            {
+                Application.Current.Shutdown();
+            }
+        }
+
+       
