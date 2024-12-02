@@ -120,3 +120,79 @@ namespace MastermindGame
                 e.Cancel = true;
             }
         }
+        private void CheckCode(object sender, RoutedEventArgs e)
+        {
+            var guesses = new[] {
+                ComboBox1.SelectedItem as string,
+                ComboBox2.SelectedItem as string,
+                ComboBox3.SelectedItem as string,
+                ComboBox4.SelectedItem as string
+            };
+
+            if (guesses.Any(g => g == null))
+            {
+                MessageBox.Show("Please select a color for each position.");
+                return;
+            }
+
+            int redCount = 0;
+            int whiteCount = 0;
+
+            var feedback = new List<string>();
+            var remainingCode = _generatedCode.ToList();
+            var remainingGuess = new List<string>();
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (guesses[i] == _generatedCode[i])
+                {
+                    redCount++;
+                    feedback.Add("Red");
+                    remainingCode[i] = null;
+                }
+                else
+                {
+                    feedback.Add(null);
+                    remainingGuess.Add(guesses[i]);
+                }
+            }
+
+            foreach (var guess in remainingGuess)
+            {
+                if (remainingCode.Contains(guess))
+                {
+                    whiteCount++;
+                    remainingCode[remainingCode.IndexOf(guess)] = null;
+                }
+            }
+
+            UpdateScore(redCount, whiteCount);
+            UpdateHistory(guesses, string.Join(", ", feedback.Where(f => f != null)));
+
+            if (redCount == 4)
+            {
+                MessageBox.Show("Congratulations! You've cracked the code.");
+                AddHighScore();
+                InitializeGame();
+            }
+            else
+            {
+                NextAttempt();
+            }
+        }
+
+        private void OpenSettings(object sender, RoutedEventArgs e)
+        {
+            var dialog = new InputDialog("Enter maximum attempts (3-20):", "Settings");
+            if (dialog.ShowDialog() == true && int.TryParse(dialog.ResponseText, out int attempts))
+            {
+                if (attempts >= 3 && attempts <= 20)
+                {
+                    _maxAttempts = attempts;
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a number between 3 and 20.");
+                }
+            }
+        }
