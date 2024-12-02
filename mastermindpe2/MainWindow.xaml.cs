@@ -112,3 +112,11 @@ namespace MastermindGame
             AddHighScore();
             InitializeGame();
         }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to exit the game?", "Confirm Exit", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
