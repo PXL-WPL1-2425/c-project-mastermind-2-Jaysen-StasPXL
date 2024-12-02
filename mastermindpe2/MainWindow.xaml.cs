@@ -196,3 +196,38 @@ namespace MastermindGame
                 }
             }
         }
+        private void ViewHighScores(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(string.Join("\n", _highScores), "High Scores");
+        }
+
+        private void NewGame(object sender, RoutedEventArgs e)
+        {
+            InitializeGame();
+        }
+
+        private void ExitGame(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private class InputDialog
+        {
+            private string v1;
+            private string v2;
+
+            public InputDialog(string v1, string v2)
+            {
+                this.v1 = v1;
+                this.v2 = v2;
+            }
+
+            public string ResponseText { get; internal set; }
+
+            internal bool ShowDialog()
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+}
